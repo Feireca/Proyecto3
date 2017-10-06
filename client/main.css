@@ -1,0 +1,22 @@
+/* CSS declarations go here */
+#border {
+    border: dotted;
+    margin-top: 20px;
+}
+
+#centro {
+    text-align: center;
+}
+
+.padre {
+    display: table;
+    position: fixed;
+    width: 100%;
+    height: 100%;
+}
+
+.hijo {
+    display: table-cell;
+    text-align: center;
+    vertical-align: middle;
+}
