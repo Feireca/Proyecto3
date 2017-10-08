@@ -19,7 +19,6 @@ class Documento extends Component {
 
         newProps.usuarios.forEach((u) => {
             ctx.beginPath();
-            //ctx.moveTo(u.x, u.y);
             ctx.font = "15px Arial";
             ctx.fillText(u.nombre,u.x,u.y);
         })

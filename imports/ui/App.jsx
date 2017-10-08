@@ -3,7 +3,7 @@ import PropTypes from "prop-types";
 import {createContainer} from "meteor/react-meteor-data";
 import InputPlayer from "./InputPlayer.jsx";
 import Documento from "./Documento.jsx";
-import {Usuarios} from "../api/usuarios.js"
+import {Usuarios} from "../api/tasks.js"
 import "../../client/main.css";
 
 class App extends Component {
@@ -20,7 +20,6 @@ class App extends Component {
     }
 
     onEnterPlayer(nombre) {
-        console.log(nombre);
 
         let datos = Usuarios.find({}).fetch();
         let ultimaPosicion = datos[datos.length-1];
@@ -30,15 +29,16 @@ class App extends Component {
         }
 
         if(ultimaPosicion != undefined){
-            this.positionX = this.positionX + (ultimaPosicion.nombre.length*8) + 10;
+            this.positionX = ultimaPosicion.x + 20 + ultimaPosicion.nombre.length*8;
+            this.positionY = ultimaPosicion.y;
+
 
             if(this.positionX+nombre.length > this.width-(ultimaPosicion.nombre.length*8)) {
-                this.positionY = this.positionY + 20;
                 this.positionX = 10;
+                this.positionY = ultimaPosicion.y + 20;
                 this.contador = 0;
             }
         }
-
 
         let usuario = {
             nombre: nombre,
@@ -46,8 +46,8 @@ class App extends Component {
             y:this.positionY
         }
 
-        usuario._id = Usuarios.insert(usuario);
-        
+        //usuario._id = Usuarios.insert(usuario);
+        Meteor.call('tasks.insert', usuario.nombre, usuario.x, usuario.y);
 
         this.setState({
             currentUsuario: usuario
@@ -72,6 +72,7 @@ App.propTypes = {
 };
 
 export default createContainer(() => {
+    Meteor.subscribe('tasks');
     return {
         usuarios: Usuarios.find({}).fetch()
     }
