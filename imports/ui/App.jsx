@@ -57,6 +57,8 @@ class App extends Component {
     render() {
         return (
             <div className="padre">
+                <div>
+                </div>
                 <div className="hijo">
                     <h2 id="centro">ImagiNote</h2>
                     <InputPlayer onClick = {this.onEnterPlayer}></InputPlayer>
