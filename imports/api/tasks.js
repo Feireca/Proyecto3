@@ -17,7 +17,7 @@ if (Meteor.isServer) {
 Meteor.methods({
     'tasks.insert'(nombre, x, y) {
         check(nombre, String);
-
+        // username siempre "Felipe Iregui"?
         Usuarios.insert({
             nombre,
             x,

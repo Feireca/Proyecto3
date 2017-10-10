@@ -6,6 +6,8 @@ import Documento from "./Documento.jsx";
 import {Usuarios} from "../api/tasks.js"
 import "../../client/main.css";
 
+
+//Es buena practica hacer gitignore a la carpeta "node_modules"
 class App extends Component {
     constructor(props) {
         super(props);
