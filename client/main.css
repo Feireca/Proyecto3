@@ -2,10 +2,16 @@
 #border {
     border: dotted;
     margin-top: 20px;
+    background: white;
 }
 
 #centro {
+    text-align: center; 
     text-align: center;
+    color: white;
+    font-family: Arial;
+    font-size: 3em;
+    background: darkblue;
 }
 
 .padre {
@@ -19,4 +25,7 @@
     display: table-cell;
     text-align: center;
     vertical-align: middle;
+}
+body{
+    background-image:url("https://i.pinimg.com/736x/d5/f8/99/d5f89922ccc0601aea5d8a01c1bd3557--cool-patterns-the-artist.jpg");
 }
