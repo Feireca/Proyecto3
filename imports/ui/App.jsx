@@ -5,6 +5,7 @@ import InputPlayer from "./InputPlayer.jsx";
 import Documento from "./Documento.jsx";
 import {Usuarios} from "../api/tasks.js"
 import "../../client/main.css";
+import AccountsUIWrapper from "./AccountsUser.jsx";
 
 class App extends Component {
     constructor(props) {
@@ -56,7 +57,12 @@ class App extends Component {
 
     render() {
         return (
+           
             <div className="padre">
+             <div>
+             <div></div>
+                <AccountsUIWrapper/>
+            </div>
                 <div className="hijo">
                     <h2 id="centro">ImagiNote</h2>
                     <InputPlayer onClick = {this.onEnterPlayer}></InputPlayer>
