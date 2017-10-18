@@ -24,8 +24,23 @@ class App extends Component {
 
         let datos = Usuarios.find({}).fetch();
         let ultimaPosicion = datos[datos.length-1];
+        var repetido= 0;
+        console.log(datos);
+        console.log(datos.length);
+        for (var i = 0; i <= datos.length-1 && repetido===0; i++) {
 
-        if(ultimaPosicion === undefined){
+            var a = JSON.stringify(datos[i]);
+            var c = JSON.parse(a);
+            console.log(c);
+            var d = c['nombre'].toLowerCase();
+            console.log(d);
+            if(d.localeCompare(nombre.toLowerCase())===0){
+                repetido =1;
+            }
+            
+        }
+        if(repetido ===0){
+             if(ultimaPosicion === undefined){
             this.positionX = 10;
         }
 
@@ -53,6 +68,13 @@ class App extends Component {
         this.setState({
             currentUsuario: usuario
         });
+
+        }
+        else
+        {
+            alert('Palabra insertada por otro usuario');
+        }
+       
     }
 
     render() {
