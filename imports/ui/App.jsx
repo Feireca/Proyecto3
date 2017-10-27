@@ -81,15 +81,15 @@ class App extends Component {
         return (
            
             <div className="padre">
-<<<<<<< HEAD
+
                 <div>
                 </div>
-=======
+
              <div>
              <div></div>
                 <AccountsUIWrapper/>
             </div>
->>>>>>> eca0819cc16b2128bf3e30245476f2c868d84c2d
+
                 <div className="hijo">
                     <h2 id="centro">ImagiNote</h2>
                     <InputPlayer onClick = {this.onEnterPlayer}></InputPlayer>
