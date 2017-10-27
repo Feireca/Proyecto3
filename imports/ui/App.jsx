@@ -5,6 +5,7 @@ import InputPlayer from "./InputPlayer.jsx";
 import Documento from "./Documento.jsx";
 import {Usuarios} from "../api/tasks.js"
 import "../../client/main.css";
+import AccountsUIWrapper from "./AccountsUser.jsx";
 
 class App extends Component {
     constructor(props) {
@@ -23,8 +24,23 @@ class App extends Component {
 
         let datos = Usuarios.find({}).fetch();
         let ultimaPosicion = datos[datos.length-1];
+        var repetido= 0;
+        console.log(datos);
+        console.log(datos.length);
+        for (var i = 0; i <= datos.length-1 && repetido===0; i++) {
 
-        if(ultimaPosicion === undefined){
+            var a = JSON.stringify(datos[i]);
+            var c = JSON.parse(a);
+            console.log(c);
+            var d = c['nombre'].toLowerCase();
+            console.log(d);
+            if(d.localeCompare(nombre.toLowerCase())===0){
+                repetido =1;
+            }
+            
+        }
+        if(repetido ===0){
+             if(ultimaPosicion === undefined){
             this.positionX = 10;
         }
 
@@ -52,13 +68,28 @@ class App extends Component {
         this.setState({
             currentUsuario: usuario
         });
+
+        }
+        else
+        {
+            alert('Palabra insertada por otro usuario');
+        }
+       
     }
 
     render() {
         return (
+           
             <div className="padre">
+<<<<<<< HEAD
                 <div>
                 </div>
+=======
+             <div>
+             <div></div>
+                <AccountsUIWrapper/>
+            </div>
+>>>>>>> eca0819cc16b2128bf3e30245476f2c868d84c2d
                 <div className="hijo">
                     <h2 id="centro">ImagiNote</h2>
                     <InputPlayer onClick = {this.onEnterPlayer}></InputPlayer>
