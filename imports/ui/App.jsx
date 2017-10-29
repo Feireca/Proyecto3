@@ -79,19 +79,11 @@ class App extends Component {
 
     render() {
         return (
-           
+
             <div className="padre">
-
-                <div>
-                </div>
-
-             <div>
-             <div></div>
-                <AccountsUIWrapper/>
-            </div>
-
                 <div className="hijo">
                     <h2 id="centro">ImagiNote</h2>
+                    <AccountsUIWrapper/>
                     <InputPlayer onClick = {this.onEnterPlayer}></InputPlayer>
                     <Documento width={this.width} height={this.height} usuarios={this.props.usuarios}></Documento>
                 </div>
