@@ -1,17 +1,19 @@
 /* CSS declarations go here */
 #border {
-    border: dotted;
+    border:3px solid #1E56A0;
     margin-top: 20px;
     background: white;
 }
 
 #centro {
-    text-align: center; 
+    align: center;
     text-align: center;
     color: white;
     font-family: Arial;
     font-size: 3em;
-    background: darkblue;
+    background: #1E56A0;
+    width: 70%;
+    margin-left: 14%;
 }
 
 .padre {
@@ -27,5 +29,18 @@
     vertical-align: middle;
 }
 body{
-    background-image:url("https://i.pinimg.com/736x/d5/f8/99/d5f89922ccc0601aea5d8a01c1bd3557--cool-patterns-the-artist.jpg");
+    background-color: #D6E4F0;
+}
+
+#colorboton {
+    background-color: #1E56A0;
+    color: white;
+}
+
+#margentop {
+    margin-top: 13px;
+}
+
+.colorletra {
+    color: #1E56A0;
 }

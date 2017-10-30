@@ -5,8 +5,6 @@ import { Random } from 'meteor/random';
 
 export const Usuarios = new Mongo.Collection('Usuario');
 
-const userId = Random.id();
-
 if (Meteor.isServer) {
     // This code only runs on the server
     Meteor.publish('tasks', function tasksPublication() {
@@ -15,7 +13,7 @@ if (Meteor.isServer) {
 }
 
 Meteor.methods({
-    'tasks.insert'(nombre, x, y) {
+    'tasks.insert'(user, nombre, x, y) {
         check(nombre, String);
 
         Usuarios.insert({
@@ -23,7 +21,7 @@ Meteor.methods({
             x,
             y,
             createdAt: new Date(),
-            owner: userId,
+            owner: user,
             username: "Felipe Iregui",
         });
     },

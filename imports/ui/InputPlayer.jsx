@@ -15,9 +15,9 @@ class InputPlayer extends Component {
 
     render() {
         return (
-            <div>
+            <div id="margentop">
                 <input type="text" placeholder="Palabra" ref={(input) => this.input = input}/>
-                <button onClick={this.onClick}> Ingresa Tu Palabra </button>
+                <button id="colorboton" onClick={this.onClick}> Ingresa Tu Palabra </button>
             </div>
         );
     }

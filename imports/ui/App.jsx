@@ -3,6 +3,7 @@ import PropTypes from "prop-types";
 import {createContainer} from "meteor/react-meteor-data";
 import InputPlayer from "./InputPlayer.jsx";
 import Documento from "./Documento.jsx";
+import {Meteor} from "meteor/meteor";
 import {Usuarios} from "../api/tasks.js"
 import "../../client/main.css";
 import AccountsUIWrapper from "./AccountsUser.jsx";
@@ -63,7 +64,7 @@ class App extends Component {
         }
 
         //usuario._id = Usuarios.insert(usuario);
-        Meteor.call('tasks.insert', usuario.nombre, usuario.x, usuario.y);
+        Meteor.call('tasks.insert', Meteor.user().username, usuario.nombre, usuario.x, usuario.y);
 
         this.setState({
             currentUsuario: usuario
@@ -83,9 +84,18 @@ class App extends Component {
             <div className="padre">
                 <div className="hijo">
                     <h2 id="centro">ImagiNote</h2>
+                    <h4 className="colorletra">Instrucciones:</h4>
+                    <h5 className="colorletra">1. Autenticarse como usuario usando una cuenta Google.</h5>
+                    <h5 className="colorletra">2. Si no hay un usuario escribiendo una palabra, escribir una palabra y empezar las notas colaborativas, tener en cuenta que no se puede repetir palabras.</h5>
                     <AccountsUIWrapper/>
-                    <InputPlayer onClick = {this.onEnterPlayer}></InputPlayer>
-                    <Documento width={this.width} height={this.height} usuarios={this.props.usuarios}></Documento>
+                    {Meteor.user() !== null ?
+                        <div>
+                            <InputPlayer onClick={this.onEnterPlayer}></InputPlayer>
+                            <Documento width={this.width} height={this.height}
+                                       usuarios={this.props.usuarios}></Documento>
+                        </div> :
+                        <div></div>
+                    }
                 </div>
             </div>
         );
@@ -93,12 +103,14 @@ class App extends Component {
 }
 
 App.propTypes = {
-    usuarios: PropTypes.array.isRequired
+    usuarios: PropTypes.array.isRequired,
+    user : PropTypes.Object
 };
 
-export default createContainer(() => {
+export default AppContainer = createContainer((props) => {
     Meteor.subscribe('tasks');
     return {
-        usuarios: Usuarios.find({}).fetch()
+        usuarios: Usuarios.find({}).fetch(),
+        user: Meteor.user()
     }
 }, App);
