@@ -7,7 +7,10 @@ import {Usuarios} from "../api/tasks.js"
 import "../../client/main.css";
 
 
-//Es buena practica hacer gitignore a la carpeta "node_modules"
+/** 1. Como he mencionado en CodeReviews anteriores, no se debería incluir la carpeta node_modules en el repositorio.
+ * 2.Por otro lado se debería incluir un readme con instrucciones para hacer el deploy de la aplicación.
+ * 3. Con respecto al diseño, es muy simple, y el fondo de pantalla es un poco incomodo a la mirada. Se podría usar otra tecnica para el fondo de pantalla.
+ * 4. No se implementaron pruebas unitarias. **/
 class App extends Component {
     constructor(props) {
         super(props);
