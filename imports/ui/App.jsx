@@ -57,7 +57,7 @@ class App extends Component {
             }
         }
 
-        let usuario = {
+        var usuario = {
             nombre: nombre,
             x:this.positionX,
             y:this.positionY
@@ -104,13 +104,13 @@ class App extends Component {
 
 App.propTypes = {
     usuarios: PropTypes.array.isRequired,
-    user : PropTypes.Object
+    user : PropTypes.Object,
 };
 
 export default AppContainer = createContainer((props) => {
     Meteor.subscribe('tasks');
     return {
         usuarios: Usuarios.find({}).fetch(),
-        user: Meteor.user()
+        user: Meteor.user(),
     }
 }, App);

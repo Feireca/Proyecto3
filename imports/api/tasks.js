@@ -13,11 +13,11 @@ if (Meteor.isServer) {
 }
 
 Meteor.methods({
-    'tasks.insert'(user, nombre, x, y) {
+    'tasks.insert'(user, palabra, x, y) {
         check(nombre, String);
 
         Usuarios.insert({
-            nombre,
+            palabra,
             x,
             y,
             createdAt: new Date(),
