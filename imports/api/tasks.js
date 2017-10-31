@@ -17,6 +17,7 @@ if (Meteor.isServer) {
 Meteor.methods({
     'tasks.insert'(nombre, x, y) {
         check(nombre, String);
+        
         Usuarios.insert({
             nombre,
             x,
