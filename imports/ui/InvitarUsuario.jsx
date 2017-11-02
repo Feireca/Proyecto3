@@ -2,7 +2,7 @@ import React, {Component} from "react";
 import PropTypes from "prop-types";
 import "../../client/main.css";
 
-class InputPlayer extends Component {
+class InvitatePlayer extends Component {
     constructor(props) {
         super(props);
 
@@ -16,15 +16,15 @@ class InputPlayer extends Component {
     render() {
         return (
             <div id="margentop">
-                <input type="text" placeholder="Palabra" ref={(input) => this.input = input}/>
-                <button id="colorboton" onClick={this.onClick}> Ingresa Tu Palabra </button>
+                <input type="text" placeholder="Otro usuario" ref={(input) => this.input = input}/>
+                <button id="btnOtherUser" onClick={this.onClick}> Invitar</button>
             </div>
         );
     }
 }
 
-InputPlayer.propTypes = {
+InvitatePlayer.propTypes = {
     onClick : PropTypes.func.isRequired
 };
 
-export default InputPlayer;
+export default InvitatePlayer;
