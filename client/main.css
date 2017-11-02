@@ -1,4 +1,3 @@
-/* CSS declarations go here */
 #border {
     border:3px solid #1E56A0;
     margin-top: 20px;
@@ -18,7 +17,6 @@
 
 .padre {
     display: table;
-    position: fixed;
     width: 100%;
     height: 100%;
 }
@@ -29,7 +27,7 @@
     vertical-align: middle;
 }
 body{
-    background-color: #D6E4F0;
+    background-color: #FFF;
 }
 
 #colorboton {
@@ -42,5 +40,11 @@ body{
 }
 
 .colorletra {
-    color: #1E56A0
+    color: #1E56A0;
+    align: center;
+    text-align: center;
+    font-family: Arial;
+    font-size: 1em;
+    width: 70%;
+    margin-left: 14%;
 }
