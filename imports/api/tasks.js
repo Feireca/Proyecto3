@@ -12,6 +12,7 @@ if (Meteor.isServer) {
     });
 }
 
+
 Meteor.methods({
     'tasks.insert'(user, palabra, x, y) {
         check(nombre, String);
