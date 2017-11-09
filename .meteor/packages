@@ -23,3 +23,6 @@ random
 accounts-ui
 accounts-google
 google-config-ui
+practicalmeteor:mocha
+xolvio:cleaner
+dburles:factory
